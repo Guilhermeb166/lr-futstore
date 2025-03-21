@@ -3,13 +3,26 @@ header{
     background-color: #000;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     position: relative;
     color: #fff;
     .logo{
         width: 60px;
         filter: invert(1);
-        margin: auto;
     }
+}
+.links{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+
+    &>li{
+        cursor: pointer;
+    }
+}
+.iconsLink{
+    font-size: 20px;
 }
 .menuButton {
     display: none;
@@ -50,7 +63,7 @@ header{
         right: -300px; /* Escondido por padrão */
         width: 250px;
         height: 100vh;
-        background: #222;
+        background: #131313;
         color: white;
         padding-top: 60px;
         transition: right 0.3s ease;
@@ -61,25 +74,26 @@ header{
         right: 0; /* Mostra o menu quando a classe 'open' é adicionada */
     }
     .closeMenu{
-        color: red;
+        color: rgb(214, 35, 35);
         cursor: pointer;
         margin-left: auto;
         position: relative;
         right: 10px;
         font-size: 26px;
     }
-    .links {
+    .linksMobile {
         list-style: none;
         padding: 0;
     }
     
-    .links li {
+    .linksMobile li {
         padding: 15px 20px;
         border-bottom: 1px solid #444;
         cursor: pointer;
+        &:hover{
+            background-color: #333;
+        }
     }
     
-    .links li:hover {
-        background: #333;
-    }
+   
 }

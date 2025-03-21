@@ -1,0 +1,85 @@
+header{
+    height: 100px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #fff;
+    .logo{
+        width: 60px;
+        filter: invert(1);
+        margin: auto;
+    }
+}
+.menuButton {
+    display: none;
+    color: #fff;
+    background: none;
+    border: none;
+    position: absolute;
+    margin-left: auto;
+    right: 10px;
+    font-size: 22px;
+    cursor: pointer;
+}
+.sideMenu{
+    display: none;
+}
+
+
+/* Mostra o botão do menu apenas em telas menores que 600px */
+@media (max-width: 600px) {
+    header{
+        .logo{
+            width: 60px;
+            
+            margin: auto;
+        }
+    }
+    .menuButton {
+        display: block;
+    }
+    
+    
+    /* Estiliza o menu lateral */
+    .sideMenu {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        top: 0;
+        right: -300px; /* Escondido por padrão */
+        width: 250px;
+        height: 100vh;
+        background: #222;
+        color: white;
+        padding-top: 60px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .sideMenu.open {
+        right: 0; /* Mostra o menu quando a classe 'open' é adicionada */
+    }
+    .closeMenu{
+        color: red;
+        cursor: pointer;
+        margin-left: auto;
+        position: relative;
+        right: 10px;
+        font-size: 26px;
+    }
+    .links {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .links li {
+        padding: 15px 20px;
+        border-bottom: 1px solid #444;
+        cursor: pointer;
+    }
+    
+    .links li:hover {
+        background: #333;
+    }
+}

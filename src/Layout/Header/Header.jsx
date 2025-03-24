@@ -1,7 +1,8 @@
 import styles from './Header.module.css'
 import { useState, useEffect } from 'react';
 import { FaShoppingCart, FaBars } from 'react-icons/fa';
-import { IoPerson,IoClose  } from "react-icons/io5";
+import { IoPerson,IoClose, IoSearchOutline } from "react-icons/io5";
+import Nav from '../Nav/Nav';
 
 export default function Header(){
     const [menuOpen,setMenuOpen] = useState(false)
@@ -21,35 +22,45 @@ export default function Header(){
    
     return(
         <header>
-            <img src="./img/Picsart_25-03-21_14-56-48-912.png" alt="" className={styles.logo}/>
-            {/*Ícone do menu hamburguer */}
-            {isMobile && ( <button className={styles.menuButton} onClick={()=> setMenuOpen(!menuOpen)}>
-                {menuOpen ? '': <FaBars/>}
-            </button> )}
-            {/*Menu lateral */}
-            {isMobile &&(
-            <nav className={`${styles.sideMenu} ${menuOpen ? styles.open : ''}`}>
-                <IoClose className={styles.closeMenu} onClick={()=> setMenuOpen(!menuOpen)}/>
-                <ul className={styles.linksMobile}>
-                    <li>Home</li>
-                    <li>Fale Conosco</li>
-                    <li>Tailandesas</li>
-                    <li>Retrôs</li>
-                    <li><FaShoppingCart /> Carrinho</li>
-                    <li><IoPerson /> Minha Conta</li>
-                </ul>
+            <div>
+                <img src="./img/Picsart_25-03-21_14-56-48-912.png" alt="" className={styles.logo}/>
+                {/*Ícone do menu hamburguer */}
+                <div className={styles.searchControl}>
+                    <input type="text" name="" id="" />
+                    <IoSearchOutline className={styles.searchIcon}/>
 
-            </nav>)}
-             {/* Mostra a lista normal em telas maiores que 600px */}
-             {!isMobile && (
-                <ul className={styles.links}>
-                    <li>Home</li>
-                    <li>Fale Conosco</li>
-                    <li className={styles.iconsLink}><FaShoppingCart /></li>
-                    <li className={styles.iconsLink}><IoPerson /></li>
-                </ul>
+                </div>
+                {isMobile && ( <button className={styles.menuButton} onClick={()=> setMenuOpen(!menuOpen)}>
+                    {menuOpen ? '': <FaBars/>}
+                </button> )}
+                {/*Menu lateral */}
+                {isMobile &&(
+                <nav className={`${styles.sideMenu} ${menuOpen ? styles.open : ''}`}>
+                    <IoClose className={styles.closeMenu} onClick={()=> setMenuOpen(!menuOpen)}/>
+                    <ul className={styles.linksMobile}>
+                        <li>Home</li>
+                        <li>Fale Conosco</li>
+                        <li>Tailandesas</li>
+                        <li>Retrôs</li>
+                        <li>Carrinho</li>
+                        <li>Minha Conta</li>
+                    </ul>
+                </nav>)}
+                 {/* Mostra a lista normal em telas maiores que 600px */}
+                 {!isMobile && (
+                    <ul className={styles.links}>
+                        
+                        <div>
+                            <li className={styles.iconsLink}><FaShoppingCart /></li>
+                            <li className={styles.iconsLink}><IoPerson /></li>
+                        </div>
+                    </ul>
+                
+                )}
+            </div>
+            {!isMobile &&(
+                <Nav/>
             )}
-            
         </header>
     )
 }

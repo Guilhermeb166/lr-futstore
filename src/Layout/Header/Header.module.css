@@ -1,28 +1,74 @@
 header{
-    height: 100px;
+    height: 160px;
+    padding-top: 20px;
     background-color: #000;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    
     position: relative;
     color: #fff;
+    &>div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 130px;
+      
+        padding-inline: 50px;
+    }
     .logo{
-        width: 60px;
+        width: 10%;
+        max-width: 60px;
         filter: invert(1);
+        
+    }
+}
+.searchControl{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    max-width: 620px;
+    padding-inline: 5px;
+    border-radius: 5px;
+
+    &>input{
+        width: 97%;
+        padding: 7px 0;
+        border: none;
+    }
+    &>.searchIcon{
+        color:#000;
+        font-size: 18px;
     }
 }
 .links{
     display: flex;
     list-style: none;
-    gap: 30px;
     align-items: center;
-
-    &>li{
+    justify-content: end;
+    gap: 40px;
+    width: 20%;
+    max-width: 80px;
+    position: relative;
+    &>div{
+        display: flex;
+        align-items: center;
+        gap: 25px;
+       
+    }
+    
+    & li{
+        position: relative;
         cursor: pointer;
     }
 }
 .iconsLink{
-    font-size: 20px;
+    font-size: 24px;
+    transition: all .2s ease;
+    &:hover{
+        transform: scale(1.15);
+        color: var(--laranja);
+    }
 }
 .menuButton {
     display: none;
@@ -59,6 +105,7 @@ header{
         position: fixed;
         display: flex;
         flex-direction: column;
+        gap: 20px;
         top: 0;
         right: -300px; /* Escondido por padrão */
         width: 250px;
@@ -74,12 +121,16 @@ header{
         right: 0; /* Mostra o menu quando a classe 'open' é adicionada */
     }
     .closeMenu{
-        color: rgb(214, 35, 35);
+        color: #c52e2e;
         cursor: pointer;
         margin-left: auto;
         position: relative;
         right: 10px;
-        font-size: 26px;
+        font-size: 28px;
+        transition: all .2s ease;
+        &:hover{
+            color:#811818;
+        }
     }
     .linksMobile {
         list-style: none;
